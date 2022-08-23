@@ -1,0 +1,27 @@
+data = [
+  {
+    "weekday": "monday",
+    "spot": 108,
+    "floor": -2
+  },
+  {
+    "weekday": "tuesday",
+    "spot": 108,
+    "floor": -2
+  },
+  {
+    "weekday": "wednesday",
+    "spot": 96,
+    "floor": -1
+  },
+  {
+    "weekday": "thursday",
+    "spot": 92,
+    "floor": -1
+  },
+  {
+    "weekday": "friday",
+    "spot": 113,
+    "floor": -2
+  }
+]

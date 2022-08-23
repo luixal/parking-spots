@@ -1,0 +1,57 @@
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <meta http-equiv='x-ua-compatible' content='ie=edge'>
+    <title>Parking Spots</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon/favicon.ico"/>
+    <meta name="theme-color" content="#ffffff">
+    <!-- IMPORTANT: No CSS link needed as of v1 - It's all inlined -->
+    <!-- Pre v1.0.0 versions need the minified css -->
+    <!-- <link rel='stylesheet' href='https://unpkg.com/v-calendar/lib/v-calendar.min.css'> -->
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;500&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='./tweaks.css' />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <div id='app'>
+      <!-- header -->
+      <h1 class="mt-10 flex justify-center items-center">
+        <div class="text-center text-2xl font-extrabold">
+          <span>Parkings Spots</span></br>
+          <span>for this week</span>
+        </div>
+        <img src="img/week.svg" class="w-14 ml-5 -rotate-12" />
+      </h1>
+      <!-- week spots -->
+      <div class="w-full">
+        <div class="grid lg:grid-cols-5 grid-cols-1 gap-4 md:p-10 p-5">
+          <div v-for="(item, index) in items" class="bg-white rounded-lg shadow-lg p-5" :class="{ 'bg-indigo-600 text-white': isCurrentWeekDay(index) }">
+            <p class="text-center pb-5" :class="{ 'text-2xl font-bold': isCurrentWeekDay(index) }">{{ item.weekday.toUpperCase() }}</p>
+            <div class="grid grid-cols-2" :class="{ 'text-3xl font-black': isCurrentWeekDay(index) }">
+              <div class="flex justify-center items-center">
+                <img src="img/parking.svg" class="w-10 float-left"/>
+                <span class="tabular-nums pl-3">{{ item.spot }}</span>
+              </div>
+              <div class="flex justify-center items-center">
+                <img src="img/stairs.svg" class="w-10 float-left"/>
+                <span class="tabular-nums pl-3">{{ item.floor }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. Link Vue Javascript -->
+    <script src='https://unpkg.com/vue@3'></script>
+    <!--3. Create the Vue instance-->
+    <script src="data.json"></script>
+    <script src='./main.js'></script>
+
+  </body>
+
+</html>
