@@ -4,8 +4,8 @@ createApp({
   data() {
     return {
       currentWeekDayIndex: (new Date()).getDay() - 1,
-      hidePast: false,
-      hideFuture: false
+      hidePast: localStorage.hidePast === 'true' || false,
+      hideFuture: localStorage.hideFuture === 'true' || false
     }
   },
 
@@ -30,6 +30,15 @@ createApp({
     },
     toggleHideFuture() {
       this.hideFuture = !this.hideFuture;
+    }
+  },
+
+  watch: {
+    hidePast(value) {
+      localStorage.hidePast = value;
+    },
+    hideFuture(value) {
+      localStorage.hideFuture = value;
     }
   }
 }).mount('#app');
